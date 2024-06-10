@@ -7,13 +7,14 @@
   <title>Job Scrapper</title>
 </head>
 <body>
-  <!-- {{}} : 변환하고 싶은 variable -->
   <h1>Search Results for "{{ keyword }}":</h1>
-  <!-- {%%} : 실행시키고 싶은 Python 코드
-        "endfor" : for문을 끝낸다는 문법
-        !!! 실행 시, 주석 지우고 실행해야 함. 500에러 원인 -->
   {% for job in jobs %}
-    <div>{{ job.link }}</div>
+    <div>
+      <span>{{ job.title }}</span>
+      <span>{{ job.company }}</span>
+      <span>{{ job.region }}</span>
+      <a href="{{ job.link }}" target="_blank">Apply now &rarr;</a>
+    </div>
   {% endfor %}
 </body>
 </html>
